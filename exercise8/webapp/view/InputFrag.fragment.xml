@@ -1,0 +1,13 @@
+<core:FragmentDefinition 
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout" >
+
+    <l:HorizontalLayout >
+        <l:content>
+            <Input id="idInput" value="{/name}"/>
+            <Button text="Say Hello" press=".onButtonClick" />
+            <Text text="Hello {/name}"/>
+        </l:content>
+    </l:HorizontalLayout>
+</core:FragmentDefinition>
