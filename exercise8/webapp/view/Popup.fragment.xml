@@ -1,0 +1,18 @@
+<core:FragmentDefinition
+xmlns="sap.m"
+xmlns:core="sap.ui.core"
+>
+
+    <Dialog id="idDialog"
+    title="이름을 팝업을 보여주는 다이어로그">
+
+    <buttons>
+        <Button text="닫기" press=".onDialogClose" />
+    </buttons>
+    <content>    
+        <Text id="idNAMEText" text="컨트롤러에서 설정함"/>
+    </content>      
+    </Dialog>
+
+</core:FragmentDefinition>
+

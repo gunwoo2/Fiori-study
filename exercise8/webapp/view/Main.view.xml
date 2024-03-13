@@ -7,6 +7,7 @@
         <content >
 
             <core:Fragment fragmentName="sync.e03.exercise8.view.InputFrag" type="XML" />
+            <core:Fragment fragmentName="sync.e03.exercise8.view.Popup" type="XML" />
 
         </content>
     </Page>
