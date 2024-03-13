@@ -1,0 +1,22 @@
+<mvc:View controllerName="sync.e03.jsonmodel.controller.MAIN"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout">
+
+
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <l:VerticalLayout>
+                <l:content>
+
+                    <Text text="{/firstName}" />
+                    <Input value="{/firstName}"
+                            enabled="{/enabled}" />
+                    <CheckBox selected="{/enabled}" />
+
+                
+                </l:content>
+            </l:VerticalLayout>
+        </content>
+    </Page>
+</mvc:View>
