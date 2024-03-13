@@ -1,6 +1,8 @@
 <core:FragmentDefinition
 xmlns="sap.m"
 xmlns:core="sap.ui.core"
+xmlns:l="sap.ui.layout"
+
 >
 
     <Dialog id="idDialog"
@@ -10,7 +12,11 @@ xmlns:core="sap.ui.core"
         <Button text="닫기" press=".onDialogClose" />
     </buttons>
     <content>    
+        <l:VerticalLayout >
+        <Text text="View의 모델에서 가져온 정보: {/name}"/>
+        
         <Text id="idNAMEText" text="컨트롤러에서 설정함"/>
+        </l:VerticalLayout >
     </content>      
     </Dialog>
 

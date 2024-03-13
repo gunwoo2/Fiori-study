@@ -1,13 +1,20 @@
 <mvc:View controllerName="sync.e03.exercise8.controller.Main"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m"
-    xmlns:core="sap.ui.core" >
+    xmlns:core="sap.ui.core" 
+    xmlns:l="sap.ui.layout">
 
     <Page id="page" title="{i18n>title}">
         <content >
 
-            <core:Fragment fragmentName="sync.e03.exercise8.view.InputFrag" type="XML" />
-            <core:Fragment fragmentName="sync.e03.exercise8.view.Popup" type="XML" />
+            <l:VerticalLayout >
+
+                <core:Fragment fragmentName="sync.e03.exercise8.view.InputFrag" type="XML" />
+
+                <core:Fragment id="frag1" fragmentName="sync.e03.exercise8.view.InputFrag" type="XML" />
+                <core:Fragment id="frag2" fragmentName="sync.e03.exercise8.view.InputFrag" type="XML" />
+
+            </l:VerticalLayout>
 
         </content>
     </Page>
