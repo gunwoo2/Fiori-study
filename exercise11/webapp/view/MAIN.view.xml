@@ -6,8 +6,12 @@
             <!-- 항공사 리스트를 위한 Pannel-->
             <Panel headerText="Carriers" expandable="true" expanded="true" height="200px">
 
-                <Table items="{/CarrierSet}" >
-
+                <Table 
+                    items="{/CarrierSet}" 
+                    mode="SingleSelectLeft"
+                    selectionChange=".onSelectionChange"
+                    >
+                
                     <columns>
                         <Column><Label text="항공사ID" /></Column>  <!--라벨 대신 Text 로 해도되는데 라벨 쓰는게 의미적으로 맞음-->
                         <Column><Label text="항공편번호" /></Column>
@@ -20,7 +24,7 @@
                                 <Text text="{Carrid}" />
                                 <Text text="{Carrname}" />
                                 <Text text="{Currcode}" />
-                                <Link text="{Url}" href="Url"/>
+                                <Link text="{Url}" href="{Url}"/>
                             </cells>                    
                         </ColumnListItem>
                     </items>
