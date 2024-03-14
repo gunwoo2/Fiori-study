@@ -1,0 +1,31 @@
+<mvc:View controllerName="sync.e03.exercise11.controller.MAIN"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <!-- 항공사 리스트를 위한 Pannel-->
+            <Panel headerText="Carriers" expandable="true" expanded="true" height="200px">
+
+                <Table items="{/CarrierSet}" >
+
+                    <columns>
+                        <Column><Label text="항공사ID" /></Column>  <!--라벨 대신 Text 로 해도되는데 라벨 쓰는게 의미적으로 맞음-->
+                        <Column><Label text="항공편번호" /></Column>
+                        <Column><Label text="통화코드" /></Column>
+                        <Column><Label text="홈페이지" /></Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem >
+                            <cells>
+                                <Text text="{Carrid}" />
+                                <Text text="{Carrname}" />
+                                <Text text="{Currcode}" />
+                                <Link text="{Url}" href="Url"/>
+                            </cells>                    
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>
