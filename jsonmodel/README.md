@@ -19,7 +19,7 @@
 
 ## jsonmodel
 
-JSON 모델 연습하
+JSON 모델 연습하기
 
 ### Starting the generated app
 
