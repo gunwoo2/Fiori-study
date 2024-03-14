@@ -1,0 +1,66 @@
+<mvc:View controllerName="sync.e03.homework1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <!-- 항공사 리스트를 위한 Pannel-->
+            <Panel headerText="항공편 정보" expandable="true" expanded="true" height="100%">
+
+                <Table 
+                    items="{/ConnSet}" 
+                    mode="SingleSelectMaster"
+                    selectionChange=".onSelectionChange"
+                    >
+                    <columns>
+                        <Column><Label text="항공사"    /></Column>  <!--라벨 대신 Text 로 해도되는데 라벨 쓰는게 의미적으로 맞음-->
+                        <Column><Label text="항공편번호"  /></Column>
+                        <Column><Label text="출발국가" /></Column>
+                        <Column><Label text="출발도시" /></Column>
+                        <Column><Label text="도착국가" /></Column>
+                        <Column><Label text="도착도시" /></Column>
+                    </columns>
+
+
+                    <items>
+                        <ColumnListItem >
+                            <cells>
+                                <Text text="{Carrid}" />
+                                <Text text="{Connid}" />
+                                <Text text="{Countryfr}" />
+                                <Text text="{Cityfrom}" />
+                                <Text text="{Countryto}" />
+                                <Text text="{Cityto}" />
+                            </cells>                    
+                        </ColumnListItem>
+                    <!-- <content >
+                        <core:Fragment fragmentName="sync.e03.homework.view.info" type="XML" />
+                    </content>     -->
+                    </items>
+                </Table>
+            </Panel>
+
+            <!-- 항공편 리스트를 위한 Pannel-->
+            <Panel headerText="Flight Connections" expandable="true" expanded="true" height="100%">
+                <content>
+                    <!--상대경로를 사용하기 때문에 이 Table에게 bindElement를 적용하기 위해서 id를 부여한다-->
+                    <Table id="idConnTable" items="{toConnection}">
+                        <columns>
+                            <Column><Label text="Connection ID" /></Column>
+                            <Column><Label text="City from" /></Column>
+                            <Column><Label text="City to" /></Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem >
+                                <cells>
+                                    <Text text="{Connid}" />
+                                    <Text text="{Cityfrom}" />
+                                    <Text text="{Cityto}" />
+                                </cells>                         
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </content>
+            </Panel>
+        </content>
+    </Page>
+</mvc:View>
