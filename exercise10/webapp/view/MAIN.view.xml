@@ -1,0 +1,31 @@
+<mvc:View controllerName="sync.e03.exercise10.controller.MAIN"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form">
+
+    <Page id="page" title="{i18n>title}">
+        <content>
+        <Carousel pages="{/ConnectionSet}">
+         <pages>
+         <Page>
+            <content>
+                <!-- 항공편 정보를 sap.ui.layout.form.SimpleForm 으로 -->
+                <f:SimpleForm>
+                    <Label text="Carrier" />
+                    <Text text="{Carrid}" /> <!-- 항공사 ID-->
+
+                    
+                    <Label text="Flight number" />
+                    <Text text="{Connid}" /> <!-- 항공편 번호-->
+                </f:SimpleForm>
+
+            </content>
+         
+                  </Page>
+
+         </pages>
+           
+        </Carousel>
+        </content>
+    </Page>
+</mvc:View>
