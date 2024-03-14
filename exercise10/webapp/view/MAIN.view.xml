@@ -5,9 +5,9 @@
 
     <Page id="page" title="{i18n>title}">
         <content>
-        <Carousel pages="{/ConnectionSet}">
+        <Carousel pages="{/ConnectionSet}" height="50%" >
          <pages>
-         <Page>
+         <Page showHeader="false">
             <content>
                 <!-- 항공편 정보를 sap.ui.layout.form.SimpleForm 으로 -->
                 <f:SimpleForm>
@@ -17,6 +17,13 @@
                     
                     <Label text="Flight number" />
                     <Text text="{Connid}" /> <!-- 항공편 번호-->
+
+                    
+                    <Label text="Departure" />
+                    <Text text="{Cityfrom}" /> <!-- 항공편의 출발도시-->
+
+                    <Label text="Destination" />
+                    <Text text="{Cityto}" /> <!-- 항공편의 도착도시-->
                 </f:SimpleForm>
 
             </content>
@@ -26,6 +33,19 @@
          </pages>
            
         </Carousel>
+        
+        <List items="{/ConnectionSet}">
+            <items>
+                <!-- 이 구역은 ConnectionSet의 라인 수 만큼 반복됨-->
+                <StandardListItem
+                    title="항공사 {Carrid}, 항공편 {Connid}"
+                    description="출발도시: {Cityfrom} / 도착도시: {Cityto}"
+                    />
+
+            </items>
+
+
+        </List>
         </content>
     </Page>
 </mvc:View>
