@@ -30,6 +30,29 @@
                     </items>
                 </Table>
             </Panel>
+
+            <!-- 항공편 리스트를 위한 Pannel-->
+            <Panel headerText="Flight Connections" expandable="true" expanded="true" height="100%">
+                <content>
+                    <!--상대경로를 사용하기 때문에 이 Table에게 bindElement를 적용하기 위해서 id를 부여한다-->
+                    <Table id="idConnTable" items="{toConnection}">
+                        <columns>
+                            <Column><Label text="Connection ID" /></Column>
+                            <Column><Label text="City from" /></Column>
+                            <Column><Label text="City to" /></Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem >
+                                <cells>
+                                    <Text text="{Connid}" />
+                                    <Text text="{Cityfrom}" />
+                                    <Text text="{Cityto}" />
+                                </cells>                         
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </content>
+            </Panel>
         </content>
     </Page>
 </mvc:View>
