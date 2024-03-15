@@ -20,7 +20,7 @@
                         <Column><Label text="도착도시" /></Column>
                     </columns>
 
-
+ 
                     <items>
                         <ColumnListItem >
                             <cells>
