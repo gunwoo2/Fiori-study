@@ -1,4 +1,4 @@
-<mvc:View controllerName="sync.e03.exercise12.controller.MAIN"
+<mvc:View controllerName="sync.e03.exercise12.controller.Main"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m"
     xmlns:f="sap.ui.layout.form">
@@ -6,18 +6,26 @@
         <content>
 
             <f:SimpleForm layout="ResponsiveGridLayout">
-
+            
                 <Label text="Carrier" />
-                <Input value="{view>/Carrid}" />
+                <Input value="{
+                        model: 'view',
+                        path: '/Carrid',
+                        type: 'sap.ui.model.type.String',
+                        constraints: {
+                            minLength: 1,
+                            maxLength: 3
+                        }
+                    }" 
+                    validationError="onCarridValidError"
 
+                />
                 
                 <Label text="Flight connection" />
-                <Input value="{view>/Connid}" />          
-            
-            
+                <Input value="{view>/Connid}" />
+
             </f:SimpleForm>
 
-
-        </content>
+        </content>  
     </Page>
 </mvc:View>
