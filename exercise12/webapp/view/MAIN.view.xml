@@ -1,0 +1,23 @@
+<mvc:View controllerName="sync.e03.exercise12.controller.MAIN"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form">
+    <Page id="page" title="{i18n>title}">
+        <content>
+
+            <f:SimpleForm layout="ResponsiveGridLayout">
+
+                <Label text="Carrier" />
+                <Input value="{view>/Carrid}" />
+
+                
+                <Label text="Flight connection" />
+                <Input value="{view>/Connid}" />          
+            
+            
+            </f:SimpleForm>
+
+
+        </content>
+    </Page>
+</mvc:View>
