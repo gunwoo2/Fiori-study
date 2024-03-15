@@ -2,20 +2,48 @@
 xmlns="sap.m"
 xmlns:core="sap.ui.core"
 xmlns:l="sap.ui.layout"
->   
+xmlns:f="sap.ui.layout.form">
+   
 
     <Dialog id="idDialog"
-    title="이름을 팝업을 보여주는 다이어로그">
+    title="항공편 정보">
 
     <buttons>
         <Button text="닫기" press=".onDialogClose" />
     </buttons>
-    <content>    
-        <l:VerticalLayout >
-        <Text text="View의 모델에서 가져온 정보: {/name}"/>
-        
-        <Text id="idNAMEText" text="컨트롤러에서 설정함"/>
-        </l:VerticalLayout >
+        <content>    
+                  
+        <!-- 항공편 정보를 sap.ui.layout.form.SimpleForm 으로 -->
+            <f:SimpleForm id="idConnTable">
+                <f:content>
+                    <Label text="항공사" />
+                    <Text text="{/Carrid}" />
+
+                    <Label text="항공편 번호" />
+                    <Text text="{/Connid}" />
+
+                    <Label text="비행시간" />
+                    <Text text="{/Fltime}" />
+
+                    <Label text="출발시간" />
+                    <Text text="{/Deptime}" />
+                    
+                    <Label text="도착시간" />
+                    <Text text="{/Arrtime}" />
+
+                    <Label text="비행거리" />
+                    <Text text="{/Distance}{/Distid}" />
+                </f:content>
+            </f:SimpleForm>
+            
     </content>      
     </Dialog>
 </core:FragmentDefinition>
+
+                    <!-- Carrid: oContext.getProperty("Carrid"),
+                    Connid: oContext.getProperty("Connid"),
+                    Fltime: oContext.getProperty("Fltime"),
+                    Deptime: oContext.getProperty("Deptime"),
+                    Arrtime: oContext.getProperty("Arrtime"),
+                    Distance: oContext.getProperty("Distance"),
+                    Distid: oContext.getProperty("Distid"), -->
