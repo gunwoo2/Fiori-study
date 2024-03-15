@@ -1,7 +1,9 @@
 <mvc:View controllerName="sync.e03.exercise12.controller.Main"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns="sap.m"
-    xmlns:f="sap.ui.layout.form">
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    >
     <Page id="page" title="{i18n>title}">
         <content>
 
@@ -17,15 +19,25 @@
                             maxLength: 3
                         }
                     }" 
-                    validationError="onCarridValidError"
+                validationError="onCarridValidError"
 
                 />
                 
                 <Label text="Flight connection" />
-                <Input value="{view>/Connid}" />
+                <Input 
+                    core:require="{
+                        Connid: 'sync/e03/exercise12/model/type/Connid'
+                    }"
+
+                    value="{
+                        model: 'view',
+                        path: '/Connid',
+                        type: 'sync.e03.exercise12.model.type.Connid'
+                    }" 
+                />
 
             </f:SimpleForm>
 
-        </content>  
+        </content>
     </Page>
 </mvc:View>
