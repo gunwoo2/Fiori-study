@@ -7,7 +7,12 @@
             <Panel headerText="Carriers" expandable="true" expanded="true" height="200px">
 
                 <Table 
-                    items="{/CarrierSet}" 
+                    items="{
+                        path: '/CarrierSet',
+                        parameters: {
+                            expand: 'toConnection'
+                            }    
+                    }" 
                     mode="SingleSelectLeft"
                     selectionChange=".onSelectionChange"
                     >
@@ -33,6 +38,7 @@
 
             <!-- 항공편 리스트를 위한 Pannel-->
             <Panel headerText="Flight Connections" expandable="true" expanded="true" height="100%">
+                
                 <content>
                     <!--상대경로를 사용하기 때문에 이 Table에게 bindElement를 적용하기 위해서 id를 부여한다-->
                     <Table id="idConnTable" items="{toConnection}">
