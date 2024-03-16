@@ -5,3 +5,8 @@
     color: white;
     font: bold;
 }
+
+.boldLabel {
+    font-weight: bold;
+    color: rgb(20, 4, 250);
+}

@@ -31,8 +31,8 @@ sap.ui.define([
 
                 //----------------------------------------------------                      
                 // ---------------------------------------------------------------------------
-                //Info.fragment.xml 을 팝업창으로 호출하는 로직
-                //Info.fragment.xml 을 팝업창으로 호출하는 로직
+                // Info.fragment.xml 을 팝업창으로 호출하는 로직
+                // 출력할 데이터를 객체로 표현
                 let oData = {
                     Carrid: oContext.getProperty("Carrid"),
                     Connid: oContext.getProperty("Connid"),
@@ -47,8 +47,7 @@ sap.ui.define([
 
                 // 이미 로드된 Fragment가 없으면 새로 로드
                 if (!oDialog) {
-                    oDialog = sap.ui.xmlfragment(oView.getId(), "sync.e03.homework1.view.info", this);
-                    oView.addDependent(oDialog); // View에 Fragment 추가
+                    oDialog = sap.ui.xmlfragment(oView.getId(), "sync.e03.homework1.view.info", this);       
                 }
 
                 // Fragment에 데이터 바인딩

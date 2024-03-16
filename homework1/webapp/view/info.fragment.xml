@@ -16,22 +16,22 @@ xmlns:f="sap.ui.layout.form">
         <!-- 항공편 정보를 sap.ui.layout.form.SimpleForm 으로 -->
             <f:SimpleForm id="idConnTable">
                 <f:content>
-                    <Label text="항공사" />
+                    <Label text="항공사" class="boldLabel"/>
                     <Text text="{/Carrid}" />
 
-                    <Label text="항공편 번호" />
+                    <Label text="항공편 번호" class="boldLabel"/>
                     <Text text="{/Connid}" />
 
-                    <Label text="비행시간" />
+                    <Label text="비행시간" class="boldLabel" />
                     <Text text="{/Fltime}" />
 
-                    <Label text="출발시간" />
+                    <Label text="출발시간" class="boldLabel"/>
                     <Text text="{/Deptime}" />
                     
-                    <Label text="도착시간" />
+                    <Label text="도착시간" class="boldLabel"/>
                     <Text text="{/Arrtime}" />
 
-                    <Label text="비행거리" />
+                    <Label text="비행거리" class="boldLabel"/>
                     <Text text="{/Distance}{/Distid}" />
                 </f:content>
             </f:SimpleForm>
@@ -46,4 +46,15 @@ xmlns:f="sap.ui.layout.form">
                     Deptime: oContext.getProperty("Deptime"),
                     Arrtime: oContext.getProperty("Arrtime"),
                     Distance: oContext.getProperty("Distance"),
-                    Distid: oContext.getProperty("Distid"), -->
+                    Distid: oContext.getProperty("Distid"),
+<ObjectNumber number="{ 
+                                        parts: [ {path:'Price'} , {path:'Currency'} ],
+                                        type: 'sap.ui.model.type.Currency',
+                                        formatOptions: {
+                                            showMeasure: false
+                                            
+                                        }
+                                     }"
+
+                                     unit="{Currency}"
+                                    /> -->
