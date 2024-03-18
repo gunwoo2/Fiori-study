@@ -11,27 +11,27 @@
 
                 <columns>
                     <Column >
-                        <Label text="항공사" />
+                        <Label text="{i18n>labelCarrid}" />
                     </Column>
 
                     <Column >
-                        <Label text="항공편번호" />
+                        <Label text="{i18n>labelConnid}" />
                     </Column>
 
                     <Column >
-                        <Label text="출발국가" />
+                        <Label text="{i18n>labelCountryfr}" />
                     </Column>
 
                     <Column >
-                        <Label text="출발도시" />
+                        <Label text="{i18n>labelCityfrom}" />
                     </Column>
 
                     <Column >
-                        <Label text="도착국가" />
+                        <Label text="{i18n>labelCountryto}" />
                     </Column>
 
                     <Column >
-                        <Label text="도착도시" />
+                        <Label text="{i18n>labelCityto}" />
                     </Column>
 
                 </columns>
