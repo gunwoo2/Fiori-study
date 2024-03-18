@@ -1,0 +1,56 @@
+<core:FragmentDefinition 
+    xmlns:core="sap.ui.core" 
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form" >
+    <Dialog  id="idDialog" title="항공편 정보">
+
+    <content>
+        <f:SimpleForm layout="ResponsiveGridLayout">
+
+        <!-- 신규 라인 -->
+            <Label text="항공사" />
+            <Text text="{Carrid}" />
+
+        <!-- 신규 라인 (라벨이 등장할 때마다 엔터 누르듯이 신규라인으로 취급) -->
+            <Label text="항공편 번호" />
+            <Text text="{Connid}" />
+
+        <!-- 신규 라인 -->
+            <Label text="비행시간" />
+            <Text text="{Fltime}" />
+
+        <!-- 신규 라인 -->
+            <Label text="출발시간" />
+            <TimePicker value="{
+                path: 'Deptime',
+                type: 'sap.ui.model.odata.type.Time',
+                formatOptions: {
+                        pattern:'HH:mm:ss'
+                }
+            }" />
+
+        <!-- 신규 라인 -->
+            <Label text="도착시간" />
+            <TimePicker value="{
+                path: 'Arrtime',
+                type: 'sap.ui.model.odata.type.Time',
+                formatOptions: {
+                        pattern:'HH:mm:ss'
+                }
+            }" />
+            
+        </f:SimpleForm>
+    </content>
+
+    <beginButton>
+        <Button  text="닫기" press="onClosePress" />
+    </beginButton>
+    <buttons>
+
+    </buttons>
+    <endButton>
+    
+    </endButton>
+    
+    </Dialog>
+</core:FragmentDefinition>
