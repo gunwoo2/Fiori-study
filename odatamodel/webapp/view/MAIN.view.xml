@@ -22,6 +22,7 @@
                             <ObjectIdentifier title="{Carrid}"/>
                         </t:template>
                     </t:Column>
+
                     <t:Column >
                         <Label text="{i18n>labelCarrname}" />
                         <t:template>
@@ -31,18 +32,28 @@
                         </HBox>
                         </t:template>
                     </t:Column>
+
                     <t:Column >
                         <Label text="{i18n>labelCurrcode}" />
                         <t:template>
                             <ObjectAttribute text="{Currcode}"/>
                         </t:template>
                     </t:Column>
+
                     <t:Column >
                         <Label text="{i18n>labelUrl}" />
                         <t:template>
                             <Link text="{Url}" href="{Url}"/>
                         </t:template>
                     </t:Column>
+
+                    <t:Column >
+                        <Label text="{i18n>labelAction}" />
+                        <t:template>
+                            <Button icon="sap-icon://delete" press="onDelete" />
+                        </t:template>
+                    </t:Column>
+
                 </t:columns>
                 <t:noData>
                     <BusyIndicator class="sapUiMediumMargin"/>
