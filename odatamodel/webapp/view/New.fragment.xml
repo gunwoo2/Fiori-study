@@ -12,7 +12,9 @@
             labelSpanS="4">
 
             <Label text="{i18n>labelCarrid}" />
-            <Input value="{new>/Carrid}" maxLength="3" required="true">
+            <Input value="{new>/Carrid}" maxLength="3" required="true"
+                   enabled="{view>/CreateMode}" 
+                   visible="{view>/CreateMode}">
                 <layoutData>
                     <l:GridData span="S3" />
                 </layoutData>
@@ -27,7 +29,8 @@
             <ComboBox 
                 id="idComboBox"
                 items="{view>/Currency}"
-                selectionChange="onCurrencyChange" 
+                selectionChange="onCurrencyChange"
+                selectedKey="{new>/Currcode}"
                 >
                 <items>
                     <c:Item key="{view>key}" text="{view>name} {view>key}" />
@@ -55,4 +58,16 @@
 
 <!-- 생성 버튼을 누르면 뜨는 fragment를 구현함
     1. 생성 버튼을 누르면 onCreate가 호출되고
-    2. Fragment 내에 2개의 버튼을 구현함 onSabeConfirm / onSaveCancel-->
+    2. Fragment 내에 2개의 버튼을 구현함 onSabeConfirm / onSaveCancel
+    &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&//
+    editable="false" 라는 옵션을 주면 수정을 눌렀을 때 변경을 못하도록 칸을 잠금.
+    근데 생성을 눌렀을 때는 칸이 열려야 되기 때문에 동적할당을 수행해줘야 함.
+    <Input value="{new>/Carrid}" maxLength="3" required="true" 
+    enabled="{view>/CreateMode}" visible="{view>/CreateMode}">
+    여기서 enabled="{view>/CreateMode}" visible="{view>/CreateMode} 이 로직을 추가해서 CreateMode 에 따라 칸이 열리고
+    닫히고를 되게 구현해줌
+
+    이 로직에 대한 구현은 MAIN 컨트롤러.JS 에서 구현해줌
+    
+    
+    -->
