@@ -37,7 +37,7 @@
                         <t:template>
                             <ComboBox selectedKey="{Currcode}"
                                 items="{view>/Currency}" 
-                                editable="true"
+                                editable="false"
                                 enabled="true" >
                                 <items>
                                     <!-- 위에 xmlnsLcore="sap.ui.core" 를 <mvc:View> 의 속성으로 추가-->
