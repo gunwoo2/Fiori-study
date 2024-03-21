@@ -36,7 +36,11 @@
                             <l:GridData indent="L8 M8 S8" span="L4 M4 S4" />
                         </layoutData>
                     </Button>
-                    <Button text="나머지" press="onMod" />
+                    <Button text="나머지" press="onMod" >
+                        <layoutData>
+                            <l:GridData indent="L8 M8 S8" span="L4 M4 S4" />
+                        </layoutData>
+                    </Button>
                 </f:SimpleForm>
             </Panel>
 
