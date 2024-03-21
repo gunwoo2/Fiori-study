@@ -16,7 +16,8 @@
                     mode="SingleSelectLeft"
                     selectionChange=".onSelectionChange"
                     >
-                
+                    <!--선택한 라인 고를수 있게 mode 추가 left 면 선택 박스가 왼쪽에 정렬-->
+
                     <columns>
                         <Column><Label text="항공사ID" /></Column>  <!--라벨 대신 Text 로 해도되는데 라벨 쓰는게 의미적으로 맞음-->
                         <Column><Label text="항공편번호" /></Column>
@@ -37,11 +38,13 @@
             </Panel>
 
             <!-- 항공편 리스트를 위한 Pannel-->
+            <!-- expandable : 확장 가능한지-->
+            <!-- expanded : 처음에 띄었을 때 확장된 상태인지-->
             <Panel headerText="Flight Connections" expandable="true" expanded="true" height="100%">
                 
                 <content>
                     <!--상대경로를 사용하기 때문에 이 Table에게 bindElement를 적용하기 위해서 id를 부여한다-->
-                    <Table id="idConnTable" items="{toConnection}">
+                    <Table id="idConnTable" items="{toConnection}" >
                         <columns>
                             <Column><Label text="Connection ID" /></Column>
                             <Column><Label text="City from" /></Column>
