@@ -1,0 +1,78 @@
+<mvc:View controllerName="sync.e03.input.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form">
+    <Page id="page" title="{i18n>title}">
+        <content>
+
+            <Panel headerText="ID로 접근하여 값을 읽고 쓰기 해보기" >
+
+                <!-- 값을 입력받기 위해서는 sap.m.Input 을 사용한다-->
+                <f:SimpleForm layout="ResponsiveGridLayout">
+                    <!-- 값을 입력받기 위해서는 sap.m.Input 을 사용한다. -->
+                    <Input id="idInput1" value="" type="Number" />
+                    <Input id="idInput2" value="" type="Number" />
+
+                    <Text id="idText" text="계산 결과가 출력될 예정입니다." />
+
+                    <Button text="더하기" press="onAdd">
+                        <layoutData>
+                            <l:GridData indent="L8 M8 S8" span="L4 M4 S4" />
+                        </layoutData>
+                    </Button>
+                    <Button text="빼기" press="onSub">
+                        <layoutData>
+                            <l:GridData indent="L8 M8 S8" span="L4 M4 S4" />
+                        </layoutData>
+                    </Button>
+                    <Button text="곱하기" press="onMul">
+                        <layoutData>
+                            <l:GridData indent="L8 M8 S8" span="L4 M4 S4" />
+                        </layoutData>
+                    </Button>
+                    <Button text="나누기" press="onDiv" >
+                        <layoutData>
+                            <l:GridData indent="L8 M8 S8" span="L4 M4 S4" />
+                        </layoutData>
+                    </Button>
+                    <Button text="나머지" press="onMod" />
+                </f:SimpleForm>
+            </Panel>
+
+            <Panel headerText="JSON Model로 접근하여 값을 읽고 쓰기 해보기" >
+                <f:SimpleForm layout="ResponsiveGridLayout">
+                    <Label text="숫자1" />
+                    <Input value="{
+                        path: '/value1',
+                        type: 'sap.ui.model.type.Float'
+                    }" type="Number"
+                       validationError="onValidError"
+                        /> 
+
+                    <Label text="숫자2 (0~100)" />
+                    <Input value="{
+                        path: '/value2',
+                       type: 'sap.ui.model.type.Float',
+                       constraints: {
+                            minimum: 0,
+                            maximum: 100
+                       }
+                      }" type="Number"
+                        validationError="onValidError" /> 
+
+                    <Label text="결과" />
+                    <Input value="{/result}" editable="false" />
+
+                    <Label />
+                    <Button text="JSON Model로 더하기" press="onAddJSON" />
+                    <Button text="JSON Model로 빼기" press="onSubJSON" />
+                    <Button text="JSON Model로 곱" press="onMulJSON" />
+                    <Button text="JSON Model로 나누기" press="onDivJSON" />
+                    <Button text="JSON Model로 나머지" press="onModJSON" />
+                </f:SimpleForm>
+            </Panel>
+
+        </content>
+    </Page>
+</mvc:View>
