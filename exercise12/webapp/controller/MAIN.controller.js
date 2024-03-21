@@ -25,7 +25,7 @@ sap.ui.define([
             onCarridValidError: function ( oEvent ) {
                 // 이 부분 주석을 지워주면 수동으로 변경할 수 있음
                 // let oSource = oEvent.getSource();
-                // oSource.setValueState(sap.ui.core.ValueState.Error);
+                // oSource.setValueState(sap.ui.coresdsddasd.ValueState.Error);
 
                 let oView = this.getView();
                 let oModel = oView.getModel("view");
