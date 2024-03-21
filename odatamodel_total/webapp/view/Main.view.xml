@@ -1,0 +1,288 @@
+<mvc:View controllerName="sync.e03.odatamodeltotal.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.table"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <t:Table id="idTable"
+                rows="{/FlightSet}">
+                <t:extension>
+                    <!-- Toolbar -->
+                    <Toolbar>
+                        <ToolbarSpacer />
+                        <Button text="새로고침" icon="sap-icon://refresh" press="onRefresh"/>
+                        <Button text="수정모드" icon="sap-icon://edit" 
+                            press="onEdit"
+                            visible="{= !${view>/EditMode} }"
+                            />
+                <!-- 조회 모드 일때만 연필(수정) 버튼이 보이게 열리도록 위에 코드를 추가함-->
+                    </Toolbar>
+                </t:extension>
+
+                <t:columns>
+                    <!-- 컬럼 제목과 데이터 -->
+                    <!-- 아래의 경우 라벨은 볼드처리가 안되고 해당 열에 데이터만 볼드처리됨-->
+                    <t:Column width="7rem" hAlign="Center" >
+                        <Label text="{i18n>labelCarrid}" />
+                        <t:template>
+                            <ObjectIdentifier title="{Carrid}"/>
+                        </t:template>
+                    </t:Column>
+
+                    <!--수정모드: 열려있는 열을 보이게 함-->
+                    <!--하나의 열에서 데이터가 열리고 잠기게 할 수 있도록 코드를 수정함-->
+                    <t:Column> 
+                        <Label design="Bold" text="{i18n>labelConnid}" />
+                        <t:template>
+                            <HBox>
+                                <Input value="{Connid}" 
+                                placeholder="항공사의 이름을 입력하세요." 
+                                valueLiveUpdate="true"
+                                maxLength="15"
+                                width="15rem" 
+                                visible="{view>/EditMode}"/>
+
+                                <Text text="{Connid}" 
+                                visible="{= !${view>/EditMode} }"/>
+
+                            </HBox>
+                        </t:template>
+                    </t:Column>
+
+
+                    <!--수정모드: 열려있는 열을 보이게 함-->
+                    <!-- <t:Column visible="{view>/EditMode}">
+                        <Label design="Bold" text="{i18n>labelCarrname}" />
+                        <t:template>
+                            <Input value="{Carrname}" 
+                            placeholder="항공사의 이름을 입력하세요." 
+                            valueLiveUpdate="true"
+                            maxLength="20" /> 
+                        </t:template>
+                    </t:Column> -->
+
+                    <!--조회모드: 잠겨있는 열을 보이게 함-->
+                    <!-- <t:Column visible="{= !${view>/EditMode} }">
+                        <Label design="Bold" text="{i18n>labelCarrname}" />
+                        <t:template>
+                            <Input value="{Carrname}" 
+                            placeholder="항공사의 이름을 입력하세요." 
+                            valueLiveUpdate="true"
+                            editable="false"/>
+                        </t:template>
+                    </t:Column> -->
+
+                                        <!--수정모드: 열려있는 열을 보이게 함-->
+                    <!--하나의 열에서 데이터가 열리고 잠기게 할 수 있도록 코드를 수정함-->
+
+                    <!-- 비행일자 필드-->
+                    <t:Column> 
+                        <Label design="Bold" text="{i18n>labelFldate}" />
+                        <t:template>
+                            <HBox>
+
+                                <Input value="{
+                                    path: 'Fldate',
+                                    type: 'sap.ui.model.type.Date',
+                                    formatOptions: {
+                                        pattern: 'yyyy-MM-dd'
+                                    }
+                                }" 
+                                placeholder="비행일정을 입력하세요." 
+                                valueLiveUpdate="true"
+                                maxLength="15"
+                                width="15rem" 
+                                visible="{view>/EditMode}"
+                                />
+
+                               <!-- <ObjectIdentifier  title="{ 
+                                    path: 'Fldate',
+                                    type: 'sap.ui.model.type.Date',
+                                    formatOptions: {
+                                        pattern: 'yy-MM-dd'
+                                    } 
+                                }" 
+                                visible="{view>/EditMode}"
+                                /> -->                                
+
+                                <Text text="{
+                                    path: 'Fldate',
+                                    type: 'sap.ui.model.type.Date',
+                                    formatOptions: {
+                                        pattern: 'yy-MM-dd'
+                                    }
+                                }" 
+                                visible="{= !${view>/EditMode} }"
+                                />
+
+                            </HBox>
+                        </t:template>
+                    </t:Column>
+
+                    <!-- Price 필드-->
+                    <t:Column> 
+                        <Label design="Bold" text="{i18n>labelPrice}" />
+                        <t:template>
+                            <HBox>
+                              
+                                <!-- <Input value="{
+                                parts: [ {path:'Price'} , {path:'Currency'} ],
+                                type: 'sap.ui.model.type.Currency',
+                                formatOptions: {
+                                    showMeasure: false
+                                }
+                                }" 
+                                unit="{Currency}"
+                                visible="{view>/EditMode}"
+                                />
+
+
+                                <ObjectNumber number="{ 
+                                        parts: [ {path:'Price'} , {path:'Currency'} ],
+                                        type: 'sap.ui.model.type.Currency',
+                                        formatOptions: {
+                                            showMeasure: false
+                                            
+                                        }
+                                     }"
+
+                                     unit="{Currency}"
+                                     visible="{= !${view>/EditMode} }"
+                                    /> -->
+
+                                <Input value="{Price}" 
+                                placeholder="통화코드를 입력하세요." 
+                                valueLiveUpdate="true"
+                                maxLength="15"
+                                width="15rem" 
+                                visible="{view>/EditMode}"/>
+
+                                <Text text="{Price}" 
+                                visible="{= !${view>/EditMode} }"/>
+
+                            </HBox>
+                        </t:template>
+                    </t:Column>
+
+                    <t:Column >
+                        <Label text="{i18n>labelCurrcode}" />
+                            <t:template>
+                                <!-- template는 무조건 한개만 보여줘야함 따라서 HBox를 사용해서 사기침-->
+                                <HBox>                                
+                                <!-- 조회모드에서 보여줄 항목-->
+                                <!-- <ObjectAttribute text="{Currency}"
+                                    visible="{= !${view>/EditMode} }" /> -->
+                                <ComboBox selectedKey="{Currency}"                                        
+                                        items="{/CurrencySet}"
+                                        visible="{= !${view>/EditMode} }"
+                                        editable="false"
+                                        enabled="true" >
+                                    <items>
+                                        <core:Item key="{Waers}" text="{Waers}({Ktext})" />                                    
+                                    </items>
+                                </ComboBox>
+                                
+                                
+                                <!--게이트웨이에서 통화코드를 가져와서 사용할 수 있게 아래 코드를 수정함-->
+                                <ComboBox selectedKey="{Currency}"                                        
+                                        items="{/CurrencySet}"
+                                        visible="{view>/EditMode}">
+                                    <items>
+                                        <core:Item key="{Waers}" text="{Waers}({Ktext})" />
+                                        <!-- <core:Item key='KRW' text="KRW(원화)" />
+                                        <core:Item key='USD' text="USD(달러)" />
+                                        <core:Item key='CAD' text="CAD(캐나다)" />
+                                        <core:Item key='AUD' text="AUD(호주)" />
+                                        <core:Item key='EUR' text="EUR(유럽)" />
+                                        <core:Item key='GBP' text="GBP(영국)" /> -->
+                                    </items>
+                                </ComboBox>
+                                </HBox> 
+                            </t:template>
+                    </t:Column>
+
+                    <t:Column> 
+                        <Label design="Bold" text="{i18n>labelSeatsmax}" />
+                        <t:template>
+                            <HBox> 
+                                <Input value="{Seatsmax}" 
+                                placeholder="최대 좌석수를 입력하세요." 
+                                valueLiveUpdate="true"
+                                maxLength="10"
+                                width="10rem" 
+                                visible="{view>/EditMode}"/>
+
+                                <Text text="{Seatsmax}" 
+                                visible="{= !${view>/EditMode} }"/>
+                            </HBox>
+                        </t:template>
+                    </t:Column>
+
+                    <t:Column> 
+                        <Label design="Bold" text="{i18n>labelSeatsocc}" />
+                        <t:template>
+                            <HBox> 
+                                <Input value="{Seatsocc}" 
+                                placeholder="현재 예약된 좌석수를 입력하세요." 
+                                valueLiveUpdate="true"
+                                maxLength="10"
+                                width="10rem" 
+                                visible="{view>/EditMode}"/>
+
+                                <Text text="{Seatsocc}" 
+                                visible="{= !${view>/EditMode} }"/>
+                            </HBox>
+                        </t:template>
+                    </t:Column>
+
+                    <!-- <t:Column> 
+                        <Label design="Bold" text="{i18n>labelPaymentsum}" />
+                        <t:template>
+                            <HBox> 
+                                <Input value="{Paymentsum}" 
+                                placeholder="총 예약율을 입력하세요." 
+                                valueLiveUpdate="true"
+                                maxLength="10"
+                                width="10rem" 
+                                visible="{view>/EditMode}"/>
+
+                                <Text text="{Paymentsum}" 
+                                visible="{= !${view>/EditMode} }"/>
+                            </HBox>
+                        </t:template>
+                    </t:Column> -->
+
+                    <t:Column >
+                        <Label text="{i18n>labelAction}" />
+                        <t:template>
+                            <!-- template에는 반드시 하나만 있어야 함. 따라서 호라이즌 추가함-->
+                            <l:HorizontalLayout>
+                                <Button icon="sap-icon://edit" press="onUpdate" class="sapUiTinyMarginEnd"/>
+                                <Button icon="sap-icon://delete" press="onDeleteone" />
+                            </l:HorizontalLayout>
+                        </t:template>
+                    </t:Column>
+
+
+                    
+                </t:columns>
+
+            </t:Table>
+
+        </content>
+        <!--저장 취소 버튼 만들기 위해 아래 코드 추가-->
+        <footer>
+            <OverflowToolbar visible="{view>/EditMode}">
+              <content>  
+                <ToolbarSpacer />
+                <Button text="생성" icon="sap-icon://create-form" press="onCreate" type="Accept" />
+                <Button text="저장" icon="sap-icon://save" press="onSave" type= "Accept"/>
+                <Button text="삭제" icon="sap-icon://delete" press="onDelete" type="Emphasized" />
+                <Button text="조회모드" icon="sap-icon://cancel" press="onCancel" type= "Reject"/>
+            </content>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>
