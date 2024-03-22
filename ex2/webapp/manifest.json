@@ -1,7 +1,7 @@
 {
   "_version": "1.17.0",
   "sap.app": {
-    "id": "sync.e03.odatamodeltotal",
+    "id": "sync.e03.ex2",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -12,12 +12,12 @@
     "resources": "resources.json",
     "sourceTemplate": {
       "id": "@sap/generator-fiori:basic",
-      "version": "1.13.0",
-      "toolsId": "c838e1a3-544b-4e23-9b32-5c349d596521"
+      "version": "1.12.5",
+      "toolsId": "cf7f04d7-1a29-49d4-8f92-af95d0d80996"
     },
     "dataSources": {
       "mainService": {
-        "uri": "/sap/opu/odata/sap/ZE03_GW_TEST1_SRV/",
+        "uri": "/sap/opu/odata/sap/ZE03_EX2_SRV/",
         "type": "OData",
         "settings": {
           "annotations": [],
@@ -66,15 +66,13 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "sync.e03.odatamodeltotal.i18n.i18n"
+          "bundleName": "sync.e03.ex2.i18n.i18n"
         }
       },
       "": {
         "dataSource": "mainService",
         "preload": true,
-        "settings": {
-          "defaultBindingMode":"TwoWay"
-        }
+        "settings": {}
       }
     },
     "resources": {
@@ -89,7 +87,7 @@
         "routerClass": "sap.m.routing.Router",
         "viewType": "XML",
         "async": true,
-        "viewPath": "sync.e03.odatamodeltotal.view",
+        "viewPath": "sync.e03.ex2.view",
         "controlAggregation": "pages",
         "controlId": "app",
         "clearControlAggregation": false
@@ -114,7 +112,7 @@
       }
     },
     "rootView": {
-      "viewName": "sync.e03.odatamodeltotal.view.App",
+      "viewName": "sync.e03.ex2.view.App",
       "type": "XML",
       "async": true,
       "id": "App"

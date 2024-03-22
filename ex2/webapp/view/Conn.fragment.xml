@@ -1,0 +1,117 @@
+<core:FragmentDefinition 
+    xmlns:core="sap.ui.core" 
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form" >
+    <Dialog  id="idDialog" title="항공편 정보">
+
+    <content>
+        <!-- <f:SimpleForm layout="ResponsiveGridLayout">
+
+       
+            <Label text="항공사ID" />
+            <Text text="{toConnection/Carrid}" />
+
+      
+            <Label text="항공사명" />
+            <Text text="{flight/Connid}" />
+
+       
+            <Label text="출발지" />
+            <Text text="{Cityfrom}" />
+
+            <Label text="도착지" />
+            <Text text="{Airfrom}" />
+
+            <Label text="비행시간" />
+            <Text text="{Fltime}" />
+
+
+            <Label text="출발시간" />
+            <Text text="{Deptime}" />
+
+
+            <Label text="도착시간" />
+            <Text text="{Arrtime}" />
+
+            <Label text="비행거리" />
+            <Text text="{Distance}" />
+
+            <Label text="비행기간" />
+            <Text text="{Period}" />
+
+        </f:SimpleForm> -->
+
+        <Table 
+                    items="{
+                        path: '/FlightSet',
+                        parameters: {
+                            expand: 'toConnection'
+                            }    
+                    }" 
+        >
+            <!--선택한 라인 고를수 있게 mode 추가 left 면 선택 박스가 왼쪽에 정렬-->
+
+            <columns>
+                <Column><Label text="항공사ID" /></Column>  <!--라벨 대신 Text 로 해도되는데 라벨 쓰는게 의미적으로 맞음-->
+                <Column><Label text="항공사명" /></Column>
+                <Column><Label text="출발지" /></Column>
+                <Column><Label text="도착지" /></Column>
+                <Column><Label text="비행시간" /></Column>
+                <Column><Label text="출발시간" /></Column>
+                <Column><Label text="도착시간" /></Column>
+                <Column><Label text="비행거리" /></Column>
+                <Column><Label text="비행기간" /></Column>
+            </columns>
+            <items> 
+                <ColumnListItem >
+                    <cells> 
+                        <Text text="{Carrid}" />
+                        <Text text="{Connid}" />
+                        <Text text="{Airpfrom}{Cityfrom}{Countryfr}"/>
+                        <Text text="{Airpto}{Cityto}{Countryto}" />
+                        <Text text="{Fltime}" />
+                        <Text text="{
+                            path: 'Deptime',
+                            type: 'sap.ui.model.odata.type.Time',
+                            formatOptions: {
+                                pattern: 'HH:mm:ss'
+                            }
+                        }" />
+                        
+                        <Text text="{
+                            path: 'Arrtime',
+                            type: 'sap.ui.model.odata.type.Time',
+                            formatOptions: {
+                                pattern: 'HH:mm:ss'
+                            }
+                        }" />
+                        
+                        <Text text="{Distance}" />
+                        <ObjectNumber number="{ 
+                            parts: [ {path:'Distance'} , {path:'Distid'} ],
+                            type: 'sap.ui.model.type.distid'                    
+                         }"
+                         unit="{Distid}"                         
+                        />
+                        <Text text="{Period}" />
+                    
+                    </cells>                    
+                </ColumnListItem>
+            </items>
+        </Table>
+        
+        
+    </content>
+
+    <beginButton>
+        <Button  text="닫기" press="onClosePress" />
+    </beginButton>
+    <buttons>
+
+    </buttons>
+    <endButton>
+    
+    </endButton>
+    
+    </Dialog>
+</core:FragmentDefinition>
