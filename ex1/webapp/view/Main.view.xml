@@ -11,8 +11,9 @@ xmlns:f="sap.ui.layout.form">
                 <!-- 값을 입력받기 위해서는 sap.m.Input 을 사용한다-->
                 <f:SimpleForm layout="ResponsiveGridLayout">
                     <!-- 값을 입력받기 위해서는 sap.m.Input 을 사용한다. -->
-                    <Input id="idInput1" value="" type="Number" liveChange="checkInput1" />
+                    <Input id="idInput1" value="" type="Number" liveChange="checkInput1"  />
                     <Input id="idInput2" value="" type="Number" liveChange="checkInput2" />
+                    
 
                     <Title text="결과 출력" class="boldText" />
                     <Label text="덧셈" />
