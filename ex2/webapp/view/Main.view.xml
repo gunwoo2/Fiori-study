@@ -7,9 +7,15 @@ xmlns:l="sap.ui.layout">
     <Page id="page" title="{i18n>title}">
         <content>
             <t:Table id="idTable"
-    rows="{/FlightSet}"
+    rows="{
+        path: '/FlightSet',
+        parameters: {
+            expand: 'toConnection'
+        }
+    }"
     selectionMode="SingleToggle"
-    rowSelectionChange=".onSelectionChange">
+    rowSelectionChange=".onSelectionChange"
+>
 
                 <t:columns>   
                 
