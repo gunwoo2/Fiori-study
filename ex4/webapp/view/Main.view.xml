@@ -1,0 +1,303 @@
+<mvc:View controllerName="sync.e03.ex4.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+xmlns:t="sap.ui.table"
+xmlns:core="sap.ui.core"
+xmlns:l="sap.ui.layout">
+<Page id="page" title="{i18n>title}">
+    <content>
+        <t:Table id="idTable"
+            rows="{/ConnectionSet}">
+            <t:extension>
+                <!-- Toolbar -->
+                <Toolbar>
+                    <ToolbarSpacer />
+                    <Button text="새로고침" icon="sap-icon://refresh" press="onRefresh"/>
+                    <Button text="수정모드" icon="sap-icon://edit" 
+                        press="onEdit"
+                        visible="{= !${view>/EditMode} }"
+                        />
+            <!-- 조회 모드 일때만 연필(수정) 버튼이 보이게 열리도록 위에 코드를 추가함-->
+                </Toolbar>
+            </t:extension>
+
+            <t:columns>
+                <!-- 컬럼 제목과 데이터 -->
+                <!-- 아래의 경우 라벨은 볼드처리가 안되고 해당 열에 데이터만 볼드처리됨-->
+                <t:Column width="5rem" hAlign="Center" >
+                    <Label design="Bold" text="{i18n>labelCarrid}" />
+                    <t:template>
+                        <ObjectIdentifier title="{Carrid}"/>
+                    </t:template>
+                </t:Column>
+
+                <!--수정모드: 열려있는 열을 보이게 함-->
+                <!--하나의 열에서 데이터가 열리고 잠기게 할 수 있도록 코드를 수정함-->
+                <t:Column width="7rem" hAlign="Center"> 
+                    <Label design="Bold" text="{i18n>labelConnid}" />
+                    <t:template>
+                        <HBox>
+                            <Input value="{Connid}" 
+                            placeholder="항공사의 이름을 입력하세요." 
+                            valueLiveUpdate="true"
+                            maxLength="15"
+                            width="15rem" 
+                            visible="{view>/EditMode}"/>
+
+                            <ObjectIdentifier title="{Connid}" 
+                            visible="{= !${view>/EditMode} }"/>
+
+                        </HBox>
+                    </t:template>
+                </t:Column>
+
+
+                <!--수정모드: 열려있는 열을 보이게 함-->
+                <!-- <t:Column visible="{view>/EditMode}">
+                    <Label design="Bold" text="{i18n>labelCarrname}" />
+                    <t:template>
+                        <Input value="{Carrname}" 
+                        placeholder="항공사의 이름을 입력하세요." 
+                        valueLiveUpdate="true"
+                        maxLength="20" /> 
+                    </t:template>
+                </t:Column> -->
+
+                <!--조회모드: 잠겨있는 열을 보이게 함-->
+                <!-- <t:Column visible="{= !${view>/EditMode} }">
+                    <Label design="Bold" text="{i18n>labelCarrname}" />
+                    <t:template>
+                        <Input value="{Carrname}" 
+                        placeholder="항공사의 이름을 입력하세요." 
+                        valueLiveUpdate="true"
+                        editable="false"/>
+                    </t:template>
+                </t:Column> -->
+
+                                    <!--수정모드: 열려있는 열을 보이게 함-->
+                <!--하나의 열에서 데이터가 열리고 잠기게 할 수 있도록 코드를 수정함-->
+
+                <!-- 비행일자 필드-->
+                <t:Column width="8rem" hAlign="Center"> 
+                    <Label design="Bold" text="{i18n>labelCityfrom}" />
+                    <t:template>
+                        <HBox>
+
+                            <Input value="{Cityfrom}" 
+                            
+                            valueLiveUpdate="true"
+                            maxLength="15"
+                            width="15rem" 
+                            visible="{view>/EditMode}"/>
+
+                           <!-- <ObjectIdentifier  title="{ 
+                                path: 'Fldate',
+                                type: 'sap.ui.model.type.Date',
+                                formatOptions: {
+                                    pattern: 'yy-MM-dd'
+                                } 
+                            }" 
+                            visible="{view>/EditMode}"
+                            /> -->                                
+
+                            <Text text="{Cityfrom}({Countryfr})" 
+                            visible="{= !${view>/EditMode} }"/>
+
+                        </HBox>
+                    </t:template>
+                </t:Column>
+
+                <t:Column visible="{view>/EditMode}">
+                    <Label design="Bold" text="{i18n>labelCountryfr}"  />
+                    <t:template>
+                        <Input value="{Countryfr}" 
+                                            
+                                            valueLiveUpdate="true"
+                                            maxLength="5"
+                                            width="5rem" 
+                                            visible="{view>/EditMode}"/>
+                    </t:template>
+                </t:Column>
+
+
+
+
+                <t:Column width="8rem" hAlign="Center"> 
+                    <Label design="Bold" text="{i18n>labelCityto}" />
+                    <t:template>
+                        <HBox>
+
+                            <Input value="{Cityto}" 
+                            
+                            valueLiveUpdate="true"
+                            maxLength="15"
+                            width="15rem" 
+                            visible="{view>/EditMode}"/>
+
+                           <!-- <ObjectIdentifier  title="{ 
+                                path: 'Fldate',
+                                type: 'sap.ui.model.type.Date',
+                                formatOptions: {
+                                    pattern: 'yy-MM-dd'
+                                } 
+                            }" 
+                            visible="{view>/EditMode}"
+                            /> -->                                
+
+                            <Text text="{Cityto}({Countryto})" 
+                            visible="{= !${view>/EditMode} }"/>
+
+                        </HBox>
+                    </t:template>
+                </t:Column>
+
+                <t:Column visible="{view>/EditMode}">
+                    <Label design="Bold" text="{i18n>labelCountryto}"  />
+                    <t:template>
+                        <Input value="{Countryto}" 
+                                            
+                                            valueLiveUpdate="true"
+                                            maxLength="5"
+                                            width="5rem" 
+                                            visible="{view>/EditMode}"/>
+                    </t:template>
+                </t:Column>
+
+                <t:Column width="15rem" hAlign="Center" visible="{= !${view>/EditMode} }">
+                    <Label design="Bold" text="{i18n>labeltime}"  />
+                    <t:template>
+                        <Text text="{Deptime} ~ {Arrtime}" 
+                            visible="{= !${view>/EditMode} }"/>
+                    </t:template>
+                </t:Column>
+
+                <t:Column visible="{view>/EditMode}">
+                    <Label design="Bold" text="{i18n>labeltime1}"  />
+                    <t:template>
+                        <TimePicker value="{
+                            path: 'Deptime',
+                            type: 'sap.ui.model.odata.type.Time',
+                            formatOptions: {
+                                    pattern:'HH:mm:ss'
+                            }
+                        }" 
+                        visible="{view>/EditMode}" />    
+                        <!-- <Input value="{Countryfr}" 
+                                            
+                                            valueLiveUpdate="true"
+                                            maxLength="5"
+                                            width="5rem" 
+                                            visible="{view>/EditMode}"/> -->
+                    </t:template>
+                </t:Column>
+
+
+                <t:Column visible="{view>/EditMode}">
+                    <Label design="Bold" text="{i18n>labeltime2}"  />
+                    <t:template>
+                        <TimePicker value="{
+                            path: 'Arrtime',
+                            type: 'sap.ui.model.odata.type.Time',
+                            formatOptions: {
+                                    pattern:'HH:mm:ss'
+                            }
+                        }" 
+                        visible="{view>/EditMode}" />  
+                        <!-- <Input value="{Countryfr}" 
+                                            
+                                            valueLiveUpdate="true"
+                                            maxLength="5"
+                                            width="5rem" 
+                                            visible="{view>/EditMode}"/> -->
+                    </t:template>
+                </t:Column>
+
+                
+
+                <!-- <t:Column> 
+                    <Label design="Bold" text="{i18n>labeltime}" />
+                    <t:template>
+                        <HBox>
+
+                            <Input value="{Deptime}" 
+                            
+                            valueLiveUpdate="true"
+                            maxLength="15"
+                            width="15rem" 
+                            visible="{view>/EditMode}"/>
+
+                            <Text text="{Deptime} ~ {Arrtime})" 
+                            visible="{= !${view>/EditMode} }"/>
+
+                        </HBox>
+                    </t:template>
+                </t:Column> -->
+
+                <t:Column width="15rem" hAlign="Center" visible="{= !${view>/EditMode} }">
+                    <Label design="Bold" text="{i18n>labelDistance}"  />
+                    <t:template>
+                        <ObjectNumber number="{Distance}" unit="{Distid}" 
+                            visible="{= !${view>/EditMode} }"/>
+                    </t:template>
+                </t:Column>
+
+                
+                <t:Column> 
+                        <Label design="Bold" text="{i18n>labelDistance}" />
+                        <t:template>
+                            <HBox>
+                                <Input value="{Distance}" 
+                                valueLiveUpdate="true"
+                                maxLength="15"
+                                width="15rem" 
+                                visible="{view>/EditMode}"/>
+                                <ComboBox selectedKey="{Distance}"
+                                items="{view>/Distid}" 
+                                editable="true"
+                                enabled="true"
+                                visible="{view>/EditMode}" >
+                                <items>
+                                    <!-- 위에 xmlnsLcore="sap.ui.core" 를 <mvc:View> 의 속성으로 추가-->
+                                     <core:Item key="{view>Key}" text="{view>name} {view>key}" />
+                                </items>
+                            </ComboBox>
+                                
+                                
+                                
+
+                            <ObjectNumber number="{Distance}" unit="{Distid}"  
+                                visible="{= !${view>/EditMode} }"/>
+
+                            </HBox>
+                        </t:template>
+                    </t:Column>
+
+
+
+                
+
+
+
+
+
+                
+            </t:columns>
+
+        </t:Table>
+
+    </content>
+    <!--저장 취소 버튼 만들기 위해 아래 코드 추가-->
+    <footer>
+        <OverflowToolbar visible="{view>/EditMode}">
+          <content>  
+            <ToolbarSpacer />
+            <!-- <Button text="생성" icon="sap-icon://create-form" press="onCreate" type="Accept" /> -->
+            <Button text="저장" icon="sap-icon://save" press="onSave" type= "Accept"/>
+            <Button text="삭제(추가 구현용)" icon="sap-icon://delete" press="onDelete" type="Emphasized" />
+            <Button text="조회모드" icon="sap-icon://cancel" press="onCancel" type= "Reject"/>
+        </content>
+        </OverflowToolbar>
+    </footer>
+</Page>
+</mvc:View>
+
