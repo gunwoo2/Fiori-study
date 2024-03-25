@@ -1,0 +1,110 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+>
+
+    <Dialog id="idDialog" 
+        icon="sap-icon://create" 
+        title="항공편 정보 신규생성"
+    >
+        <content>
+            <f:SimpleForm 
+                layout="ResponsiveGridLayout"
+                labelSpanS="4"
+            >
+                <f:content>
+                    <!-- 항공사 정보 -->
+                    <c:Title text="{i18n>labelAirlineInfo}" />
+                    <Label text="{i18n>labelCarrid}"/>
+                    <Input value="{new>/Data/Carrid}" maxLength="3" width="3rem" required="true" />
+                        
+                    <Label text="{i18n>labelConnid}"/>
+                    <Input 
+                        value="{
+                            path:'new>/Data/Connid', 
+                            type:'sap.ui.model.type.Integer',
+                            constraints: { 
+                                minimum: 1,
+                                maximum: 9999
+                            } 
+                        }" 
+                        width="4rem"
+                        type="Number"
+                    />
+
+                    <!-- 이동경로 -->
+                    <c:Title text="{i18n>labelRoute}" />
+                    <Label text="{i18n>labelCountryfr}" />
+                    <Input value="{new>/Data/Countryfr}" maxLength="3" width="3rem" />
+
+                    <Label text="{i18n>labelCityfrom1}" />
+                    <Input value="{new>/Data/Cityfrom}" maxLength="20" width="20rem" />
+
+                    <Label text="{i18n>labelAirpfrom}" />
+                    <Input value="{new>/Data/Airpfrom}" maxLength="0" width="3rem" required="true" />
+
+                    <Label text="{i18n>labelCountryto}" />
+                    <Input value="{new>/Data/Countryto}" maxLength="3" width="3rem" />
+
+                    <Label text="{i18n>labelCityto1}" />
+                    <Input value="{new>/Data/Cityto}" maxLength="20" width="20rem" />
+
+                    <Label text="{i18n>labelAirpto}" />
+                    <Input value="{new>/Data/Airpto}" maxLength="3" width="3rem" required="true" />
+
+                    <!-- 시간 및 거리 -->
+                    <c:Title text="{i18n>labelTimeDistance}" />
+                    <Label text="출발시간" />
+                    <TimePicker 
+                        value="{
+                            path: 'new>/Data/Deptime',
+                            type: 'sap.ui.model.odata.type.Time'
+                        }" 
+                        width="8rem"
+                    />
+                    <!-- <TimePicker 
+                        value="{
+                            path: 'new>/Data/Deptime',
+                            type: 'sap.ui.model.odata.type.Time'
+                        }" 
+                        width="8rem"
+                    /> -->
+
+                    <Label text="도착시간" />
+                    <TimePicker 
+                        value="{new>/Data/Arrtime}"
+                        valueFormat="HH:mm:ss"
+                        width="8rem"
+                    />
+                    <!-- <TimePicker 
+                        value="{new>/Data/Arrtime}"
+                        valueFormat="HH:mm:ss"
+                        width="8rem"
+                    /> -->
+
+                    <Label text="거리단위" />
+                    <Input value="{
+                            path: 'new>/Data/Distance',
+                            type: 'sap.ui.model.odata.type.Decimal'
+                        }" />
+                    <ComboBox selectedKey="{new>/Data/Distid}" 
+                        items="{new>/DistanceUnit}"    
+                        maxWidth="7rem"
+                    >
+                        <items>
+                            <c:Item key="{new>key}" text="{new>name}" width="7rem"/>
+                        </items>
+                    </ComboBox>
+
+
+                </f:content>
+            </f:SimpleForm>
+        </content>
+        <buttons>
+            <Button text="저장" press="onSave" icon="sap-icon://save" type="Accept" />
+            <Button text="닫기" press="onClose" icon="sap-icon://cancel" type="Reject"/>
+        </buttons>
+    </Dialog>
+
+</c:FragmentDefinition>

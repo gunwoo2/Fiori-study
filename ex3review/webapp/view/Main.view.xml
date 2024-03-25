@@ -1,0 +1,82 @@
+<mvc:View controllerName="sync.e03.ex3review.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:t="sap.ui.table">
+    <Page id="page" title="{i18n>title}">
+        <content >
+            <!-- <Pannel>
+            </Pannel> -->
+            <t:Table rows="{/ConnectionSet}" id="idTable">
+                <t:columns>
+                    <!-- 6개의 컬럼 존재-->
+                    <!-- 항공사 ID -->                
+                    <t:Column width="7rem" hAlign="Center" >
+                        <Label text="{i18n>labelCarrid}" />
+                        <t:template>
+                            <ObjectIdentifier title="{Carrid}"/>
+                        </t:template>
+                    </t:Column>
+
+                    <!-- 항공편 No -->
+                    <t:Column width="7rem" hAlign="Center" >
+                        <Label text="{i18n>labelConnid}" />
+                        <t:template>
+                            <ObjectIdentifier title="{Connid}"/>
+                        </t:template>
+                    </t:Column>
+                    
+                    <!-- 출발도시 -->
+                    <t:Column width="7rem" hAlign="Center" >
+                        <Label text="{i18n>labelCityfrom}" />
+                        <t:template>
+                            <Text text="{Cityfrom}({Countryfr})" />
+                        </t:template>
+                    </t:Column>
+                    
+                    <!-- 도착도시-->
+                    <t:Column width="7rem" hAlign="Center" >
+                        <Label text="{i18n>labelCityto}" />
+                        <t:template>
+                            <Text text="{Cityto}({Countryto})" />
+                        </t:template>
+                    </t:Column>
+                    
+                    <!-- 비행시간 -->
+                    <t:Column width="7rem" hAlign="Center" >
+                        <Label text="{i18n>labelFltime}" />
+                        <t:template>
+                            <!--'a hh:mm:ss' : AM 11: 04 이렇게 나옴-->
+                            <Text text="{ path: 'Deptime', type: 'sap.ui.model.odata.type.Time', formatOptions: { pattern: 'HH:mm:ss'} } ~ {Arrtime}" /> 
+                        </t:template>
+                    </t:Column>
+                    
+                    <!-- 비행거리 -->
+                    <t:Column width="7rem" hAlign="Center" >
+                        <Label text="{i18n>labelDistance}" />
+                        <t:template>
+                            <ObjectNumber number="{Distance}" 
+                            unit="{Distid}" />
+                        </t:template>
+                    </t:Column>
+                </t:columns>
+            </t:Table>
+        </content >
+
+        <footer>
+            <OverflowToolbar >
+                <ToolbarSpacer />
+                <Button 
+                    icon="sap-icon://create"
+                    text="신규생성"                
+                    type="Accept"
+                    press=".onCreate" />
+
+                <Button 
+                icon="sap-icon://delete"
+                text="삭제"                
+                type="Reject"
+                press=".onDelete" />
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

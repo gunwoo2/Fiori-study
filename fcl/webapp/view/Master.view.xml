@@ -1,0 +1,81 @@
+<mvc:View controllerName="sync.ea.fcl.controller.Master"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.f">
+    <!-- <Page id="page" title="{i18n>title}">
+        <content />
+    </Page> -->
+
+
+    
+    <f:DynamicPage id="idDynamicPage" toggleHeaderOnTitleClick="false">
+		<!-- DynamicPage Title -->
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+                    <!-- 타이틀 텍스트 변경해줌 -->
+					<Title text="{i18n>title}"/>
+				</f:heading>
+			</f:DynamicPageTitle>
+		</f:title>
+
+		<!-- DynamicPage Content -->
+		<f:content>
+			<VBox fitContainer="true">
+				<OverflowToolbar class="sapFDynamicPageAlignContent">
+					<ToolbarSpacer/>
+					<SearchField search=".onSearch" width="17.5rem"/>
+					<!-- <OverflowToolbarButton icon="sap-icon://add" text="Add" type="Transparent" press=".onAdd"/> -->
+					<!-- <OverflowToolbarButton icon="sap-icon://sort" text="Sort" type="Transparent" press=".onSort"/> -->
+				</OverflowToolbar>
+
+                <!-- sap.m.Table 활용 -->
+				<Table
+					id="idCarrierTable"
+					items="{
+						path: '/CarrierSet',
+						sorter: {
+							path: 'Carrid'
+						}
+					}"
+					class="sapFDynamicPageAlignContent"
+					width="auto">
+					<columns>
+						<Column width="6em"> <!--6글자 길이만큼 차지-->
+							<Text text="{i18n>labelCarrid}"/>
+						</Column>
+                        <Column width="20em"> <!--20글자 길이만큼 차지-->
+							<Text text="{i18n>labelCarrname}"/>
+						</Column>
+                        <Column width="6em">
+							<Text text="{i18n>labelCurrcode}"/>
+						</Column>
+                        <Column width="auto">
+							<Text text="{i18n>labelUrl}"/>
+						</Column>
+					</columns>
+
+					<items>
+						<ColumnListItem type="Navigation"> <!--Navigation = 클릭이 가능하다 -->
+							<cells>
+								<ObjectIdentifier title="{Carrid}" text="{Carrname}"/>
+                                <ObjectIdentifier title="{Carrname}" />
+                                <ObjectIdentifier title="{Currcode}" />
+                                <Link text="홈페이지" href="{Url}"/>
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</VBox>
+		</f:content>
+
+		<!-- DynamicPage Footer -->
+		<f:footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button type="Accept" text="Accept"/>
+				<Button type="Reject" text="Reject"/>
+			</OverflowToolbar>
+		</f:footer>
+	</f:DynamicPage>
+</mvc:View>

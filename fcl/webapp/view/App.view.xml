@@ -1,0 +1,20 @@
+<mvc:View controllerName="sync.ea.fcl.controller.App"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.f">
+
+    <App id="app">
+        <f:FlexibleColumnLayout 
+        id="idFlexibleColumnLayout" 
+        backgroundDesign="Solid"
+        >
+
+        <!-- 왼쪽에 등장하는 페이지를 의미함 -->
+        <f:beginColumnPages>
+			<mvc:XMLView id="beginView" viewName="sync.ea.fcl.view.Master"/>
+		</f:beginColumnPages>
+
+        </f:FlexibleColumnLayout>
+    </App>
+</mvc:View>

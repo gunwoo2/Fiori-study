@@ -1,0 +1,54 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+>
+
+    <Dialog id="idDialog" 
+        title=""
+    >
+        <customHeader>
+            <Toolbar>
+                <core:Icon src="sap-icon://flight"/>
+                <Title text="비행스케줄 조회 E03"/>
+            </Toolbar>
+        </customHeader>
+        <content>
+            <!-- 항공편 정보 -->
+            <f:SimpleForm >
+                <f:content>
+                    <Label text="{i18n>labelCarrid}" />
+                    <Text  text="{Carrid}"/>
+
+                    <Label text="{i18n>labelConnid}" />
+                    <Text  text="{Connid}"/>
+                    <Label text="{i18n>labelDeparture}" />
+                    <Text  text="{toConnection/Airpfrom}, {toConnection/Cityfrom}, {toConnection/Countryfr}"/>
+
+                    <Label text="{i18n>labelArrival}" />
+                    <Text  text="{toConnection/Airpto}, {toConnection/Cityto}, {toConnection/Countryto}"/>
+
+                    <Label text="{i18n>labelFltime}"/>
+                    <Text text="{toConnection/Fltime}" />
+
+                    <Label text="{i18n>labelDeptime}"/>
+                    <Text text="{path:'toConnection/Deptime', type: 'sap.ui.model.odata.type.Time'}" />
+
+                    <Label text="{i18n>labelArrtime}"/>
+                    <Text text="{path:'toConnection/Arrtime', type: 'sap.ui.model.odata.type.Time'}" />
+
+                    <Label text="{i18n>labelDistance}"/>
+                    <ObjectNumber number="{toConnection/Distance}" unit="{toConnection/Distid}" />
+
+                    <Label text="{i18n>labelPeriod}"/>
+                    <Text text="{toConnection/Period}" />
+                </f:content>
+            </f:SimpleForm>
+        </content>
+        <buttons>
+            <!-- 닫기 버튼 -->
+            <Button text="{i18n>labelCloseButton}" press="onCloseDialog" />
+        </buttons>
+    </Dialog>
+
+</core:FragmentDefinition>

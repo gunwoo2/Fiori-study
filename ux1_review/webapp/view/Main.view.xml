@@ -1,0 +1,69 @@
+<mvc:View controllerName="sync.e03.ux1review.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <f:SimpleForm>
+                <f:content>
+                <core:Title text="숫자 입력" />
+                    <Label text="숫자1" />
+                    <!-- 1. JSON 모델 바인딩
+                         2. ID를 가지고 직접 get, set 처리하느냐 -->
+                    <Input value="{/num1}" type="Number" required="true" />
+                    <Input value="{ 
+                        path: '/num1',
+                        type: 'sap.ui.model.type.Float'
+                    }"
+                    required="true"
+                    />
+                    <Input value="{ 
+                        path: '/num1',
+                        type: 'sap.ui.model.type.Float',
+                        formatOptions: {
+                            groupingEnabled: false
+                        }
+                    }"
+                    type="Number"
+                    required="true"
+                    />
+
+                    <Label text="숫자2" />
+                    <Input id="idNum2Input" value="0" type="Number" required="true"/>
+
+                    <core:Title text="결과 출력" />
+                
+                    <Label text="덧셈" />
+                    <Text text="{
+                        path:'/add',
+                        type:'sap.ui.model.type.Float'
+                    }" />
+                    <Button text="계산" press="onAdd" />
+
+                    <Label text="뺄셈" />
+                    <Text text="{
+                        path:'/subtract',
+                        type:'sap.ui.model.type.Float'
+                    }" />
+                    <Button text="계산" press="onSubtract" />
+
+                    <Label text="곱셈" />
+                    <Text text="{
+                        path:'/multi',
+                        type:'sap.ui.model.type.Float'
+                    }" />
+                    <Button text="계산" press="onMulti" />
+
+                    <Label text="나눗셈" />
+                    <Text text="{
+                        path:'/divide',
+                        type:'sap.ui.model.type.Float'
+                    }" />
+                    <Button text="계산" press="onDivide" />
+                </f:content>
+            </f:SimpleForm>
+            
+        </content>
+    </Page>
+</mvc:View>
