@@ -1,0 +1,77 @@
+<mvc:View controllerName="sync.e03.ex3.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+xmlns:t="sap.ui.table"
+xmlns:core="sap.ui.core"
+xmlns:l="sap.ui.layout">
+<Page id="page" title="{i18n>title}">
+    <content>
+        <t:Table id="idTable"
+rows="{/ConnectionSet}"
+selectionMode="SingleToggle"
+rowSelectionChange=".onSelectionChange">
+
+                <t:columns>   
+                
+                    <!-- 컬럼 제목과 데이터 -->
+                    <!-- 아래의 경우 라벨은 볼드처리가 안되고 해당 열에 데이터만 볼드처리됨-->
+                    <t:Column width="7rem" hAlign="Center" >
+                        <Label text="항공사ID" />
+                        <t:template>
+                            <ObjectIdentifier title="{Carrid}"/>
+                        </t:template>
+                    </t:Column>
+
+                    <t:Column width="7rem" hAlign="Center" >
+                        <Label text="항공편No" />
+                        <t:template>
+                            <ObjectIdentifier title="{Connid}"/>
+                        </t:template>
+                    </t:Column>
+
+                    <t:Column width="7rem" hAlign="Center" >
+                        <Label text="출발도시" />
+                        <t:template>
+                            <Text text="{Cityfrom}({Countryfr})" />
+                        </t:template>
+                    </t:Column>
+
+                    <t:Column width="7rem" hAlign="Center" >
+                        <Label text="도착도시" />
+                        <t:template>
+                            <Text text="{Cityto}({Countryto})" />
+                        </t:template>
+                    </t:Column>
+
+                    <t:Column width="7rem" hAlign="Center" >
+                        <Label text="비행시간" />
+                        <t:template>
+                            <Text text="{Deptime} ~ {Arrtime}" />
+                        </t:template>
+                    </t:Column>
+
+                    <t:Column width="7rem" hAlign="Center" >
+                        <Label text="비행거리" />
+                        <t:template>
+                            <ObjectNumber number="{Distance}" unit="{Distid}" />
+                        </t:template>
+                    </t:Column>
+
+                    
+                </t:columns>
+
+            </t:Table>
+        </content>
+        <footer>
+            <OverflowToolbar visible="{view>/EditMode}">
+              <content>  
+                <ToolbarSpacer />
+                <Button text="신규생성" icon="sap-icon://create" press="onCreate" type="Accept" />
+                <Button text="삭제" icon="sap-icon://delete" press="onDelete" type="Reject" />
+                 </content>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>
+
+

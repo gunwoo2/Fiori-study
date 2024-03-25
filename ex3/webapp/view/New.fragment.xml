@@ -1,0 +1,146 @@
+<c:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:c="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:t="sap.ui.table"
+>
+
+<Dialog id="idNewDialog" title="신규 항공사 정보" contentWidth="800px">
+    <content>
+        <f:SimpleForm layout="ResponsiveGridLayout" labelSpanS="4">
+            <Title text="항공사 정보" class="boldText" />
+            <Label text="{i18n>labelCarrid}" />
+            <Input value="{new>/Carrid}" maxLength="3" required="true"
+                   enabled="{view>/CreateMode}" visible="{view>/CreateMode}">
+                <layoutData>
+                    <l:GridData span="S3" />
+                </layoutData>
+            </Input>        
+
+            <Label text="{i18n>labelConnid}" />
+                <Input value="{new>/Connid}" maxLength="3" required="true"
+                       enabled="{view>/CreateMode}" visible="{view>/CreateMode}">
+                    <layoutData>
+                        <l:GridData span="S3" />
+                    </layoutData>
+                </Input>        
+
+                
+            <Title text="이동경로" class="boldText" />    
+            <Label text="{i18n>labelCountryfr}" />
+                <Input value="{new>/Countryfr}" maxLength="3" required="false"
+                       enabled="{view>/CreateMode}" visible="{view>/CreateMode}">
+                    <layoutData>
+                        <l:GridData span="S3" />
+                    </layoutData>
+                </Input>  
+             <Label text="{i18n>labelCityfrom}" />
+                <Input value="{new>/Cityfrom}" maxLength="3" required="false"
+                       enabled="{view>/CreateMode}" visible="{view>/CreateMode}">
+                    <layoutData>
+                        <l:GridData span="S3" />
+                    </layoutData>
+                </Input>    
+
+                <Label text="{i18n>labelAirpfrom}" />
+                    <Input value="{new>/Airpfrom}" maxLength="3" required="true"
+                           enabled="{view>/CreateMode}" visible="{view>/CreateMode}">
+                        <layoutData>
+                            <l:GridData span="S3" />
+                        </layoutData>
+                    </Input>   
+
+                <Label text="{i18n>labelCountryto}" />
+                    <Input value="{new>/Countryto}" maxLength="3" required="trfalseue"
+                           enabled="{view>/CreateMode}" visible="{view>/CreateMode}">
+                        <layoutData>
+                            <l:GridData span="S3" />
+                        </layoutData>
+                    </Input>  
+                    
+                    <Label text="{i18n>labelCityto}" />
+                    <Input value="{new>/Cityto}" maxLength="3" required="false"
+                           enabled="{view>/CreateMode}" visible="{view>/CreateMode}">
+                        <layoutData>
+                            <l:GridData span="S3" />
+                        </layoutData>
+                    </Input>   
+
+                    <Label text="{i18n>labelAirpto}" />
+                        <Input value="{new>/Airpto}" maxLength="3" required="true"
+                               enabled="{view>/CreateMode}" visible="{view>/CreateMode}">
+                            <layoutData>
+                                <l:GridData span="S3" />
+                            </layoutData>
+                        </Input>   
+
+            <Title text="시간 및 거리" class="boldText" />
+            <Label text="출발시간" />
+            <TimePicker value="{
+                
+                type: 'sap.ui.model.odata.type.Time',
+                formatOptions: {
+                        pattern:'HH:mm:ss'
+                }
+            }" />  
+            <Label text="도착시간" />
+            <TimePicker value="{
+                
+                type: 'sap.ui.model.odata.type.Time',
+                formatOptions: {
+                        pattern:'HH:mm:ss'
+                }
+            }" /> 
+
+            <Label text="{i18n>labelDistance}" />
+                <Input value="{new>/Distance}" maxLength="3" required="false"
+                       enabled="{view>/CreateMode}" visible="{view>/CreateMode}">
+                    <layoutData>
+                        <l:GridData span="S3" />
+                    </layoutData>                    
+                </Input>
+                <ComboBox 
+                id="idComboBox"
+                items="{view>/Distid}"
+                selectionChange="onCurrencyChange"
+                selectedKey="{new>/Distid}"
+                >
+                <items>
+                    <c:Item key="{view>key}" text="{view>name} {view>key}" />
+                </items>
+                <layoutData>
+                    <l:GridData span="S3" />
+                </layoutData>
+            </ComboBox>  
+                
+
+
+        </f:SimpleForm>
+    </content>
+    <buttons>
+        <Button text="저장" press="onSaveConfirm" type="Accept"/>
+        <Button text="취소" press="onSaveCancel" type="Reject"/>
+    </buttons>
+</Dialog>
+
+
+</c:FragmentDefinition>
+
+
+<!-- <ComboBox selectedKey="{Distid}"                                        
+                                            items="{/Distid}"
+                                            visible="{view>/EditMode}">
+                                        <items>                                         
+                                            <core:Item key='CM' text="Centimeter" />                                        
+                                            <core:Item key='DM' text="Decimeter" />
+                                            <core:Item key='FT' text="Foot" />
+                                            <core:Item key='KM' text="Kilometer" />
+                                            <core:Item key='M' text="Meter" />
+                                            <core:Item key='MI' text="Mile" />
+                                            <core:Item key='MM' text="Millimeter" />
+                                            <core:Item key='NAM' text="Nanometer" />
+                                            <core:Item key='YD' text="Yards" />
+                                            <core:Item key='µM' text="Micrometer" />
+                                        </items>
+                                    </ComboBox> -->
